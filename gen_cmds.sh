@@ -28,9 +28,9 @@ osp_server_create_ssm="openstack server create --image $image_payload --flavor _
 --nic net-id=$net_MGMT,v4-fixed-ip=__MGT__ \
 --nic net-id=$net_baseB \
 --nic port-id=__EW1__ \
---nic port-id=__EW2__ \
 --nic port-id=__NS1__ \
 --nic port-id=__NS2__ \
+--nic port-id=__EW2__ \
 --availability-zone __AZ__ --user-data __USERDATA__ --config-drive true --wait --fit-width __VM__"
 
 osp_server_create_cpm="openstack server create --image $image_payload --flavor __FLAVOR__ \

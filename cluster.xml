@@ -12,8 +12,8 @@
     <Property oe:key="baseMgmtMaster" oe:value="0.0.0.0"/>
     <Property oe:key="baseInternal" oe:value="__baseInternal__"/>
     <Property oe:key="baseInternalMaster" oe:value="__baseInternalMaster__"/>
-    <Property oe:key="chassis" oe:value="2"/>
-    <Property oe:key="node" oe:value="33"/>
+    <Property oe:key="chassis" oe:value="__cluster__"/>
+    <Property oe:key="node" oe:value="__node__"/>
     <Property oe:key="cpu" oe:value="1"/>
     <Property oe:key="name" oe:value=""/>
     <Property oe:key="platform" oe:value="MCC"/>
