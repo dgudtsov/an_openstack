@@ -22,6 +22,8 @@ do
   node=$(echo "$line" | awk -F ';' '/^[0-9]+/{print $1}' | sed 's;/;\\/;g' )
   cluster=$(echo "$line" | awk -F ';' '/^[0-9]+/{print $4}' | sed 's;/;\\/;g' )
   
+  mgmt=$(echo "$line" | awk -F ';' '/^[0-9]+/{print $5}' | sed 's;/;\\/;g' )
+  
   baseMgt=$(echo "$line" | awk -F ';' '/^[0-9]+/{print $9}' | sed 's;/;\\/;g' )
   baseInternal=$(echo "$line" | awk -F ';' '/^[0-9]+/{print $10}' | sed 's;/;\\/;g' )
   baseInternalMaster=$(echo "$line" | awk -F ';' '/^[0-9]+/{print $11}' | sed 's;/;\\/;g' )
@@ -43,6 +45,7 @@ do
 			-e "s/__baseInternalMaster__/$baseInternalMaster/" \
 			-e "s/__nodetype__/$nodetype/" \
 			-e "s/__node__/$node/" \
+			-e "s/__mgmt__/$mgmt/" \
 			-e "s/__cluster__/$cluster/" >$userdata_path$userdata
 
 	echo $userdata

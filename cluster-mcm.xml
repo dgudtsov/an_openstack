@@ -15,7 +15,7 @@
     <Property oe:key="chassis" oe:value="__cluster__"/>
     <Property oe:key="node" oe:value="__node__"/>
     <Property oe:key="cpu" oe:value="1"/>
-    <Property oe:key="name" oe:value=""/>
+    <Property oe:key="name" oe:value="scI0"/>
     <Property oe:key="platform" oe:value="MCC"/>
     <Property oe:key="node-type" oe:value="__nodetype__"/>
     <Property oe:key="ntp" oe:value="0.0.0.0"/>
@@ -34,9 +34,9 @@
     <Property oe:key="security" oe:value="enableRootSsh=1,enablePasswordAging=0,enableMultiSession=1"/>
 
     <!-- How to identify the peer controller. Controller only -->
-    <Property oe:key="peer-node" oe:value="0"/>
-    <Property oe:key="peer-baseInternal" oe:value="0.0.0.0"/>
-    <Property oe:key="peer-baseMgmtAdd" oe:value="0.0.0.0"/>
+    <Property oe:key="peer-node" oe:value="__node__"/>
+    <Property oe:key="peer-baseInternal" oe:value="__baseInternalMaster__"/>
+    <Property oe:key="peer-baseMgmtAdd" oe:value="__mgmt__"/>
 
     <!-- values are 'password-or-key' (default) or 'key-only' -->
     <Property oe:key="User_Auth_Method" oe:value="${user_auth_method}"/>
