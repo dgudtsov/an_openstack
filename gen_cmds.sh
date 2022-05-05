@@ -1,4 +1,4 @@
-#!/bin/bash -x 
+#!/bin/bash 
 
 # Generate openstack commands to deploy cluster
 
