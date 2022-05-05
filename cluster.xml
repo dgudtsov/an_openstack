@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><Environment xmlns="http://schemas.dmtf.org/ovf/environment/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oe="http://schemas.dmtf.org/ovf/environment/1" xmlns:ve="http://www.vmware.com/schema/ovfenv" oe:id="" ve:vCenterId="vm-1.2.1">
+
+  <PlatformSection>
+    <Kind>VM</Kind>
+    <Version>2.0</Version>
+    <Vendor>Affirmed Networks</Vendor>
+    <Locale>en</Locale>
+  </PlatformSection>
+
+  <PropertySection>
+    <Property oe:key="baseMgt" oe:value="__baseMgt__"/>
+    <Property oe:key="baseMgmtMaster" oe:value="0.0.0.0"/>
+    <Property oe:key="baseInternal" oe:value="__baseInternal__"/>
+    <Property oe:key="baseInternalMaster" oe:value="__baseInternalMaster__"/>
+    <Property oe:key="chassis" oe:value="2"/>
+    <Property oe:key="node" oe:value="33"/>
+    <Property oe:key="cpu" oe:value="1"/>
+    <Property oe:key="name" oe:value=""/>
+    <Property oe:key="platform" oe:value="MCC"/>
+    <Property oe:key="node-type" oe:value="__nodetype__"/>
+    <Property oe:key="ntp" oe:value="0.0.0.0"/>
+    <Property oe:key="sriov" oe:value="True"/>
+    <Property oe:key="redundancy" oe:value="True"/>
+    <Property oe:key="mgmtPort" oe:value="True"/>
+    <Property oe:key="baseVlanA" oe:value="0"/>
+    <Property oe:key="baseVlanB" oe:value="0"/>
+    <Property oe:key="dataFabricA" oe:value="0.0.0.0/24"/>
+    <Property oe:key="dataFabricB" oe:value="0.0.0.0/24"/>
+    <Property oe:key="vlanStripping" oe:value="False"/>
+    <Property oe:key="autoReorder" oe:value="False"/>
+
+
+    <!-- Security Options. Controller only. -->
+    <Property oe:key="security" oe:value=""/>
+
+
+    <!-- How to identify the peer controller. Controller only -->
+    <Property oe:key="peer-node" oe:value="0"/>
+    <Property oe:key="peer-baseInternal" oe:value="0.0.0.0"/>
+    <Property oe:key="peer-baseMgmtAdd" oe:value="0.0.0.0"/>
+
+    <!-- values are 'password-or-key' (default) or 'key-only' -->
+    <Property oe:key="User_Auth_Method" oe:value="${user_auth_method}"/>
+
+    <!-- values are 'False' (default) or 'True'. Disables root password for console and ssh if True -->
+    <Property oe:key="Root_Hardening" oe:value="${root_hardening}"/>
+
+    <!-- values are 'False' (default) or 'True'. Disables maint group passwords for console and ssh if True -->
+    <Property oe:key="Maint_Hardening" oe:value="${maint_hardening}"/>
+
+  </PropertySection>
+
+    <Entity oe:id="Users">
+    <PropertySection>
+      <!-- password must be a sha-512 encrypted password string for the specified user -->
+      <!-- WARNING selecting User_Auth_Method other than 'password-or-key' will still set the passwords but they will be disabled -->
+      <Property oe:key="root"     oe:passwd="${root_password}" oe:value="${root_ssh_key1}"/>
+      <Property oe:key="root"  oe:value="${root_ssh_key2}"/>
+
+      <Property oe:key="maint"    oe:passwd="${maint_password}" oe:value="${maint_ssh_key1}"/>
+      <Property oe:key="maint"    oe:value="${maint_ssh_key2}"/>
+
+      <Property oe:key="admin"    oe:passwd="${admin_password}" oe:value="${admin_ssh_key1}"/>
+      <Property oe:key="admin"    oe:value="${admin_ssh_key2}"/>
+
+      <Property oe:key="calea"    oe:passwd="${calea_password}" oe:value="${calea_ssh_key1}"/>
+      <Property oe:key="calea"    oe:value="${calea_ssh_key2}"/>
+
+
+      <Property oe:key="content"  oe:passwd="${content_password}" oe:value="${content_ssh_key1}"/>
+      <Property oe:key="content"  oe:value="${content_ssh_key2}"/>
+
+
+
+      <Property oe:key="user3g"   oe:passwd="${user3g_password}" oe:value="${user3g_ssh_key1}"/>
+      <Property oe:key="user3g"   oe:value="${user3g_ssh_key2}"/>
+
+      <Property oe:key="user4g"   oe:passwd="${user4g_password}" oe:value="${user4g_ssh_key1}"/>
+      <Property oe:key="user4g"   oe:value="${user4g_ssh_key2}"/>
+
+      <Property oe:key="guest"    oe:passwd="${guest_password}"  oe:value="${guest_ssh_key1}"/>
+      <Property oe:key="guest"    oe:value="${guest_ssh_key2}"/>
+
+      <Property oe:key="emsadmin" oe:passwd="${emsadmin_password}" oe:value="${emsadmin_ssh_key1}"/>
+      <Property oe:key="emsadmin" oe:value="${emsadmin_ssh_key2}"/>
+
+      <Property oe:key="dnsadmin" oe:passwd="${dnsadmin_password}"  oe:value="${dnsadmin_ssh_key1}"/>
+      <Property oe:key="dnsadmin" oe:value="${dnsadmin_ssh_key2}"/>
+
+      <Property oe:key="mec"      oe:passwd="${mec_password}" oe:value="${mec_ssh_key1}"/>
+      <Property oe:key="mec"      oe:value="${mec_ssh_key2}"/>
+
+      <Property oe:key="internal" oe:value="${internal_ssh_key}"/>
+
+    </PropertySection>
+  </Entity>
+
+</Environment>
