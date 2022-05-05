@@ -4,7 +4,8 @@
 
 input=MTS-MCC-C.csv
 
-template=cluster.xml
+template_cpm_ssm=cluster.xml
+template_mcm=cluster-mcm.xml
 
 userdata_path=./userdata/
 
@@ -30,6 +31,12 @@ do
 
   if [ -n "$userdata" ]
   then
+	if [ "$nodetype" == "mcm" ]
+	then
+			template=$template_mcm
+	else
+			template=$template_cpm_ssm
+	fi
 
     cat $template | sed -e "s/__baseMgt__/${baseMgt}/" \
 			-e "s/__baseInternal__/${baseInternal}/" \
