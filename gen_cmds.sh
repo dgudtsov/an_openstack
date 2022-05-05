@@ -6,7 +6,7 @@
 # Constants
 ###
 
-input=MTS-MCC-U.csv
+input=MTS-MCC-C.csv
 
 userdata_path=./userdata/
 
@@ -97,7 +97,7 @@ do
   for i in ${!networks[@]}; do
    echo $osp_port_create | sed -e "s/__NETWORK__/${networks[$i]}/" -e "s/__PORT__/${ports[$i]}/"
    port_id=$i
-#   port_id=$($osp_port_create | sed -e "s/__NETWORK__/${networks[$i]}/" -e "s/__PORT__/${ports[$i]}/" | awk -F '|' '/ id/{print $3}')
+   port_id=$($osp_port_create | sed -e "s/__NETWORK__/${networks[$i]}/" -e "s/__PORT__/${ports[$i]}/" | awk -F '|' '/ id/{print $3}')
 
    port_ids+=($port_id)
 
@@ -117,7 +117,7 @@ do
 		  -e "s/__NS1__/${port_ids[2]}/" \
 		  -e "s/__NS2__/${port_ids[3]}/")
 	echo $CMD
-#	$("$CMD")
+	$("$CMD")
 	echo $userdata
 
 	lines=$((lines+1))
