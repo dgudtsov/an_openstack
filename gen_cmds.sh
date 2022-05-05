@@ -1,4 +1,4 @@
-#!/bin/bash  
+#!/bin/bash -x 
 
 # Generate openstack commands to deploy cluster
 
@@ -99,8 +99,12 @@ do
 
    port_id=$i
 
-   CMD=$(echo $osp_port_create | sed -e "s/__NETWORK__/${networks[$i]}/" -e "s/__PORT__/${ports[$i]}/" | awk -F '|' '/ id/{print $3}')
-   port_id=$($CMD)
+#   CMD=$(echo $osp_port_create | sed -e "s/__NETWORK__/${networks[$i]}/" -e "s/__PORT__/${ports[$i]}/" | awk -F '|' '/ id/{print $3}')
+   CMD=$(echo $osp_port_create | sed -e "s/__NETWORK__/${networks[$i]}/" -e "s/__PORT__/${ports[$i]}/" )
+ 
+   port_id=$($CMD | awk -F '|' '/ id/{print $3}')
+   echo created port id: $port_id
+
 
    port_ids+=($port_id)
 
