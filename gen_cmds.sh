@@ -118,7 +118,7 @@ do
 		  -e "s/__MGT__/$Mgt/" \
 		  -e "s/__AZ__/$az/" \
 		  -e "s/__VM__/$vm/" \
-		  -e "s/__USERDATA__/$userdata/" \
+		  -e "s/__USERDATA__/$userdata_path$userdata/" \
 		  -e "s/__EW1__/${port_ids[0]}/" \
 		  -e "s/__EW2__/${port_ids[1]}/" \
 		  -e "s/__NS1__/${port_ids[2]}/" \
