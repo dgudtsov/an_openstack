@@ -31,7 +31,7 @@ osp_server_create_ssm="openstack server create --image $image_payload --flavor _
 --nic port-id=__NS1__ \
 --nic port-id=__NS2__ \
 --nic port-id=__EW2__ \
---availability-zone __AZ__ --user-data __USERDATA__ --config-drive true --wait --fit-width __VM__"
+--availability-zone __AZ__ --user-data __USERDATA__ --config-drive true --fit-width __VM__"
 
 osp_server_create_cpm="openstack server create --image $image_payload --flavor __FLAVOR__ \
 --nic net-id=$net_baseA \
@@ -39,13 +39,13 @@ osp_server_create_cpm="openstack server create --image $image_payload --flavor _
 --nic net-id=$net_baseB \
 --nic port-id=__EW1__ \
 --nic port-id=__EW2__ \
---availability-zone __AZ__ --user-data __USERDATA__ --config-drive true --wait --fit-width __VM__"
+--availability-zone __AZ__ --user-data __USERDATA__ --config-drive true --fit-width __VM__"
 
 osp_server_create_mcm="openstack server create --image $image_mcm --flavor __FLAVOR__ \
 --nic net-id=$net_baseA \
 --nic net-id=$net_MGMT,v4-fixed-ip=__MGT__ \
 --nic net-id=$net_baseB \
---availability-zone __AZ__ --user-data __USERDATA__ --config-drive true --wait --fit-width __VM__"
+--availability-zone __AZ__ --user-data __USERDATA__ --config-drive true --fit-width __VM__"
 
 ###
 # CODE
@@ -112,13 +112,14 @@ do
 
   if [ -n "$userdata" ]
   then
+    full_userdata=$(echo $userdata_path | sed 's;/;\\/;g')$userdata
 
   	CMD=$(echo $osp_server_create | sed \
 		  -e "s/__FLAVOR__/$flavor/" \
 		  -e "s/__MGT__/$Mgt/" \
 		  -e "s/__AZ__/$az/" \
 		  -e "s/__VM__/$vm/" \
-		  -e "s/__USERDATA__/$userdata_path$userdata/" \
+		  -e "s/__USERDATA__/$full_userdata/" \
 		  -e "s/__EW1__/${port_ids[0]}/" \
 		  -e "s/__EW2__/${port_ids[1]}/" \
 		  -e "s/__NS1__/${port_ids[2]}/" \
